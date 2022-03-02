@@ -9,10 +9,10 @@ import (
 )
 
 //POSTGRES DATABASE
-var pg_server = "database"
+var pg_server = "postgres"
 var pg_port = 5432
 var pg_user = "postgres"
-var pg_password = "postgres"
+var pg_password = "password"
 var pg_database = "orotig"
 var pg_encrypt = "disable"
 
