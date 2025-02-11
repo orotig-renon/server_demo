@@ -24,6 +24,22 @@ func ListWelderOrders(c *gin.Context) {
 	}
 }
 
+func ListPendingMarkerOrders(c *gin.Context) {
+	var welder_orders []models.WelderTest
+
+	// var response models.MarkerTestResponse
+
+	// response.OrotigTask = marker_order
+	err := models.GetPendingWelderOrders(&welder_orders)
+	if err != nil {
+		c.AbortWithStatusJSON(http.StatusNotFound, gin.H{
+			"error": err.Error(),
+		})
+	} else {
+		c.JSON(http.StatusOK, welder_orders)
+	}
+}
+
 func UpdateWeldersOrder(c *gin.Context) {
 	var welder_order models.WelderTest
 	c.BindJSON(&welder_order)

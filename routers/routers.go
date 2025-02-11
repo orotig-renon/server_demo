@@ -37,9 +37,9 @@ func SetupRouter() *gin.Engine {
 			quaranta.GET("/welder/order", controllers.ListWelderOrders)
 			quaranta.POST("/welder/order", controllers.UpdateWeldersOrder)
 			quaranta.GET("/marker/order", controllers.ListMarkerOrders)
+			quaranta.GET("/marker/pending_order", controllers.ListPendingMarkerOrders)
 			quaranta.POST("/marker/order", controllers.UpdateMarkerOrder)
 		}
-
 	}
 
 	return server

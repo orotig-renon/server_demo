@@ -11,6 +11,13 @@ func GetWelderOrders(welder_orders *[]WelderTest) (err error) {
 	return nil
 }
 
+func GetPendingWelderOrders(welder_orders *[]WelderTest) (err error) {
+	if err = config.PGDB.Where("is_complete = ?", "false").Find(welder_orders).Error; err != nil {
+		return err
+	}
+	return nil
+}
+
 func UpdateWelderOrder(welder_order *WelderTest) (err error) {
 	if err = config.PGDB.Save(welder_order).Error; err != nil {
 		return err
